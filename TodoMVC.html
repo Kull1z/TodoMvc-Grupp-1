@@ -9,7 +9,7 @@
     <body>
         <header>
         <h1>todos</h1>
-        <input type="text" id="task" placeholder="Whats need to be done?" > 
+        <input type="text" id="task" placeholder="Whats need to be done?"> 
         <section><input type="checkbox" class="check-done"><input type="text" class="new-task"></section>      
         </header>
         <main>
@@ -20,25 +20,27 @@
 </html>    
 
 <script>
-
-var old = document.querySelector('#task');
-old.addEventListener('keyup', function(e){
+    
+document.addEventListener('keyup', function(event){
   
-    if (e.key === 'Enter') {
+    if (event.key === 'Enter') {
          event.preventDefault();
         alert('I funkar');
+        var value = document.querySelector('#task').value;
          
     }
     
-});
-function addInput(){
+}); 
+
+
+// function addInput(){
    
-   let oldInput = document.querySelector('header #task');
-   let newInput = document.createElement('input', {type='text'});
-   newInput.textContent = oldIndput.textContent;
-   var bodyChild = document.querySelector('header');
-   return bodyChild.appendChild(newInput);
-}
+//    let oldInput = document.querySelector('header #task');
+//    let newInput = document.createElement('input', {type='text'});
+//    newInput.textContent = oldIndput.textContent;
+//    var bodyChild = document.querySelector('header');
+//    return bodyChild.appendChild(newInput);
+// }
 
 
 </script>
