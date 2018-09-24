@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: block;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f5f5f5;
+
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    color: rgba(175, 47, 47, 0.15);
+    text-align: center;
+    font-size: 100px;
+    font-weight: 100;
+}
+#task{
+    padding: 16px 16px 16px 60px;
+    width: 40%;
+    flex: 25px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.check-done{
+    padding: 6px 6px 6px 6px;
+    background-color: white;
+}
+
+
+@media (max-width: 850px){
+        #task{
+            width: 70%;
+        }
+}

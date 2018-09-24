@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="todo.css">
+        <title>My todo list</title>
+    </head>
+    <body>
+        <header>
+        <h1>todos</h1>
+        <input type="text" id="task" placeholder="Whats need to be done?" > 
+        <section><input type="checkbox" class="check-done"><input type="text" class="new-task"></section>      
+        </header>
+        <main>
+
+        </main>
+
+    </body>
+</html>    
+
+<script>
+
+var old = document.querySelector('#task');
+old.addEventListener('keyup', function(e){
+  
+    if (e.key === 'Enter') {
+         event.preventDefault();
+        alert('I funkar');
+         
+    }
+    
+});
+function addInput(){
+   
+   let oldInput = document.querySelector('header #task');
+   let newInput = document.createElement('input', {type='text'});
+   newInput.textContent = oldIndput.textContent;
+   var bodyChild = document.querySelector('header');
+   return bodyChild.appendChild(newInput);
+}
+
+
+</script>
