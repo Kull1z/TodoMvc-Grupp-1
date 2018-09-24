@@ -32,3 +32,4 @@ function addInput(textValue){
    main.appendChild(label);
    
 } 
+

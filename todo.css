@@ -24,6 +24,7 @@ h1{
     width: 40%;
     flex: 25px;
 }
+ 
 main{
     display: flex;
     flex-direction: column;
@@ -48,6 +49,8 @@ label{
      flex: 25px;
      background-color:white;
      align-items: center;
+     border-style: solid;
+     border-color: black;
  }
 
 
@@ -69,6 +72,4 @@ label{
     display: flex;
     list-style-type: none;
     text-align: center;
-
-    
 }
