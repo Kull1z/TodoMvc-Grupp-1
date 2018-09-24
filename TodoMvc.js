@@ -3,7 +3,6 @@ newTask.addEventListener('keyup', function(event){
   
     if (event.key === 'Enter') {
          event.preventDefault();
-        alert('I funkar');
         var textValue = document.querySelector('#task').value;
         return addInput(textValue);
          
