@@ -1,60 +1,27 @@
-var todoList = [];
-
-// function insertText() {
-//     var textHere = document.querySelector(' input ').value;
-//     todoList.push(textHere);
-//     updateShowList();
-    
-// }
-
-
-
-function populateList () {
-    var listtag = document.querySelector("todolist")
-    while (listtag.firstChild) {
-
-        listtag.removeChild(listtag.firstChild);
+var newTask= document.querySelector('#task'); 
+newTask.addEventListener('keyup', function(event){
+  
+    if (event.key === 'Enter') {
+         event.preventDefault();
+        alert('I funkar');
+        var textValue = document.querySelector('#task').value;
+        return addInput(textValue);
+         
     }
-
-            for (var i = 0; i < todoList.length; i++) {
-
-                var node = document.createElement('LI')
-                var text = document.createTextNode(todolist[i]);
-                node.appendChild(text);
-                listtag.appendChild(node);
-            }
-
-}
-
-
-function clickPress(event) {
-
-    if (event.keyCode == 13) {
-
-        alert('ELENA FUNKAR DET?');
-    }
-
-}
-
-
-// var inputString = document.querySelectorAll("input");
-// inputString.addEventListner("keydown", function (e) {
     
-//     if(e.keyCode === 13) {
-
-//         alert('Roger');
-//     }
-// });
-
-// function inputSubmit() {
+}); 
 
 
-//     for(i = 0; i >= 0; i++) {
+function addInput(textValue){
+   
+   let input = document.querySelector('#task').value; 
+   let label = document.createElement('label'); 
+   label.textContent = textValue;
+   var main = document.querySelector('main'); 
+   let image = document.createElement('img'); 
+   image.setAttribute('src', '"C:\Users\lena_\Desktop\VisualCode\ToDoMVC\checkbox-unchecked.svg"');
+   label.appendChild(image);
+   main.appendChild(label);
+  
 
-        
-
-//     }
-    
-
-
-// }
+} 
