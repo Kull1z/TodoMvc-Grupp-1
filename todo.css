@@ -35,9 +35,10 @@ section{
   flex-direction: column;
   align-items: center;
 }
-.check-done{
-    padding: 6px 6px 6px 6px;
-    background-color: white;
+.check{
+    width: 30px;
+    height: 30px;
+   
 }
 label{
     display: grid;
