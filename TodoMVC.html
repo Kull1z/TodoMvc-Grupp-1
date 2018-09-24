@@ -19,27 +19,34 @@
 </html>    
 
 <script>
-    
-document.addEventListener('keyup', function(event){
+
+var newTask= document.querySelector('#task'); 
+newTask.addEventListener('keyup', function(event){
   
     if (event.key === 'Enter') {
          event.preventDefault();
         alert('I funkar');
-        var value = document.querySelector('#task').value;
+        var textValue = document.querySelector('#task').value;
+        return addInput(textValue);
          
     }
     
 }); 
 
 
-// function addInput(){
+function addInput(textValue){
    
-//    let oldInput = document.querySelector('header #task');
-//    let newInput = document.createElement('input', {type='text'});
-//    newInput.textContent = oldIndput.textContent;
-//    var bodyChild = document.querySelector('header');
-//    return bodyChild.appendChild(newInput);
-// }
+   let input = document.querySelector('#task').value; 
+   let label = document.createElement('label'); 
+   label.textContent = textValue;
+   var main = document.querySelector('main'); 
+   let image = document.createElement('img'); 
+   image.setAttribute('src', '"C:\Users\lena_\Desktop\VisualCode\ToDoMVC\checkbox-unchecked.svg"');
+   label.appendChild(image);
+   main.appendChild(label);
+  
+
+} 
 
 
 </script>
