@@ -33,3 +33,19 @@ function addInput(textValue){
    
 } 
 
+var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+        
+    listOfCheckbox.forEach(element => {
+
+        element.addEventListener('change', function() {
+
+            if(element.checked == true)
+
+            alert('WHY???')
+
+        });
+
+    });
+
+
+
