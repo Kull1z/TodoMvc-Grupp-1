@@ -42,8 +42,7 @@ function test () {
 
             if(element.checked == true)
 
-            alert('We sure do need some help')
-
+            alert('Juice är gott')
         });
 
     });
