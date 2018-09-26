@@ -61,6 +61,14 @@ label{
   
 }
 
+p.stroke{
+    text-decoration-line: line-through;
+}
+.lab p{
+    text-decoration-line: line-through;
+}
+
+
 .filters {
     display: flex;
     list-style-type: none;

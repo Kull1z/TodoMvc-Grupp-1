@@ -30,12 +30,7 @@ function addInput(textValue){
    para.textContent = textValue;
    label.appendChild(para);
    main.appendChild(label);
-<<<<<<< HEAD
-  
-   
-=======
    test();
->>>>>>> 67d819df06de3a2a4c37919fa96c8140183cfa15
 } 
 
 
@@ -43,11 +38,15 @@ function test () {
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
 
-        element.addEventListener('change', function() {
-
-            if(element.checked == true)
-
-            alert('We sure do need some help')
+        element.addEventListener('change', function(e) {
+                var lab = e.target.parentNode
+            if(element.checked == true){
+               
+                lab.setAttribute('class', 'lab');
+            }
+            else{
+                lab.removeAttribute('class', 'lab')
+            }
 
         });
 
