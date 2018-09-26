@@ -24,15 +24,25 @@ function addInput(textValue){
    let label = document.createElement('label');  
    let inputt = document.createElement('input');
    let para = document.createElement('p'); 
+   let deleteButton = document.createElement('button')
    inputt.setAttribute('type', 'checkbox');
    inputt.setAttribute('class', 'check');
+   deleteButton.setAttribute('onclick', 'deleteLabel()');
    label.appendChild(inputt);
    para.textContent = textValue;
    label.appendChild(para);
    main.appendChild(label);
+   label.appendChild(deleteButton);
+
+   
+   deleteButton.addEventListener('click', () => {
+   
+           label.remove();
+   
+   });
+
    test();
    
-  
 } 
 var mode;
 
@@ -120,6 +130,8 @@ buttonActive.addEventListener('click', function(){
 
     });
 });
+
+
 
 
 
