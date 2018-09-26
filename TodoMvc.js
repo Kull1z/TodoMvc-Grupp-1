@@ -53,7 +53,17 @@ function test () {
     });
 
 }
+var buttonCompleted = document.querySelector('#completed');
+buttonCompleted.addEventListener('click', function(){
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    listOfCheckbox.forEach(element => {
+        var lab = element.parentNode
+        if(element.checked == false){
+            lab.style.display = 'none';
+        }
 
+    });
+})
 
 
 
