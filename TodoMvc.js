@@ -39,7 +39,7 @@ function test () {
     listOfCheckbox.forEach(element => {
 
         element.addEventListener('change', function(e) {
-                var lab = e.target.parentNode
+            var lab = e.target.parentNode
             if(element.checked == true){
                
                 lab.setAttribute('class', 'lab');
@@ -53,20 +53,6 @@ function test () {
     });
 
 }
-
-var buttonCompleted = document.querySelector('#completed');
-buttonCompleted.addEventListener('click', function(){
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
-    listOfCheckbox.forEach(element => {
-        var lab = element.parentNode
-        if(element.checked == false){
-            lab.style.display = 'none';
-        }
-
-    });
-})
-
-
 
 
 
