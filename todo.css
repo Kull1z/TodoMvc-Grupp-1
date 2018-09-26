@@ -61,11 +61,10 @@ label{
   
 }
 
-p.stroke{
-    text-decoration-line: line-through;
-}
+
 .lab p{
     text-decoration-line: line-through;
+    color: lightgray;
 }
 
 
