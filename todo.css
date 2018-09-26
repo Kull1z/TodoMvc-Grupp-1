@@ -55,3 +55,19 @@ label{
             width: 70%;
         }
 }
+
+.footer {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+}
+
+.filters {
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    
+}
+

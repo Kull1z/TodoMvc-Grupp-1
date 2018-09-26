@@ -13,7 +13,6 @@ newTask.addEventListener('keyup', function(event){
 
 function addInput(textValue){
    
-   let input = document.querySelector('#task').value; 
    let label = document.createElement('label'); 
    label.textContent = textValue;
    var main = document.querySelector('main'); 
