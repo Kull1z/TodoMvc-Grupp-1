@@ -38,11 +38,16 @@ function test () {
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
 
-        element.addEventListener('change', function() {
+        element.addEventListener('change', function(e) {
+                var lab = e.target.parentNode
+            if(element.checked == true){
+               
+                lab.setAttribute('class', 'lab');
+            }
+            else{
+                lab.removeAttribute('class', 'lab')
+            }
 
-            if(element.checked == true)
-
-            alert('Juice är gott')
         });
 
     });
@@ -54,5 +59,8 @@ function test () {
 
 
 
+
+
+    
 
 

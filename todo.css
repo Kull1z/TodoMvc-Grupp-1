@@ -61,6 +61,13 @@ label{
   
 }
 
+
+.lab p{
+    text-decoration-line: line-through;
+    color: lightgray;
+}
+
+
 .filters {
     display: flex;
     list-style-type: none;
