@@ -24,6 +24,7 @@ h1{
     width: 40%;
     flex: 25px;
 }
+ 
 main{
     display: flex;
     flex-direction: column;
@@ -35,19 +36,36 @@ section{
   flex-direction: column;
   align-items: center;
 }
-.check-done{
-    padding: 6px 6px 6px 6px;
-    background-color: white;
+.check{
+    width: 30px;
+    height: 30px;
+   
 }
 label{
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 1fr 9fr 1fr;
     padding: 16px 16px 16px 60px;
      width: 40%;
      flex: 25px;
      background-color:white;
      align-items: center;
+     border-style: solid;
+     border-color: black;
  }
+ 
+ .footer {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  
+}
+
+.filters {
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+}
 
 
 @media (max-width: 850px){
