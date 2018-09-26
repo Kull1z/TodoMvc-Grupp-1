@@ -30,6 +30,7 @@ function addInput(textValue){
    para.textContent = textValue;
    label.appendChild(para);
    main.appendChild(label);
+  
    
 } 
 
@@ -47,5 +48,8 @@ var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
 
     });
 
+
+
+    
 
 
