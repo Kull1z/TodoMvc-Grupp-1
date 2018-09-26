@@ -24,6 +24,7 @@ h1{
     width: 40%;
     flex: 25px;
 }
+ 
 main{
     display: flex;
     flex-direction: column;
@@ -48,7 +49,23 @@ label{
      flex: 25px;
      background-color:white;
      align-items: center;
+     border-style: solid;
+     border-color: black;
  }
+ 
+ .footer {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  
+}
+
+.filters {
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+}
 
 
 @media (max-width: 850px){
@@ -59,3 +76,4 @@ label{
             width: 70%;
         }
 }
+
