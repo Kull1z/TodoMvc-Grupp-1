@@ -23,7 +23,7 @@ function addInput(textValue){
    var main = document.querySelector('main');
    let label = document.createElement('label');  
    let inputt = document.createElement('input');
-   let para = document.createElement('p') 
+   let para = document.createElement('p'); 
    inputt.setAttribute('type', 'checkbox');
    inputt.setAttribute('class', 'check');
    label.appendChild(inputt);
