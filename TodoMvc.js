@@ -30,22 +30,30 @@ function addInput(textValue){
    para.textContent = textValue;
    label.appendChild(para);
    main.appendChild(label);
-   
+   test();
 } 
 
-var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
-        
+
+function test () {
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
 
         element.addEventListener('change', function() {
 
             if(element.checked == true)
 
-            alert('WHY???')
+            alert('We sure do need some help')
 
         });
 
     });
+
+}
+
+
+
+
+
 
 
 
