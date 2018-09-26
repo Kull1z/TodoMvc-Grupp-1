@@ -31,11 +31,13 @@ function addInput(textValue){
    label.appendChild(para);
    main.appendChild(label);
    test();
+   
+  
 } 
-
+var mode;
 
 function test () {
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));   
     listOfCheckbox.forEach(element => {
 
         element.addEventListener('change', function(e) {
@@ -43,9 +45,17 @@ function test () {
             if(element.checked == true){
                
                 lab.setAttribute('class', 'lab');
+                if(mode = "complete"){
+                    lab.style.display = 'none';
+                }
+               
+                
+                
+
             }
             else{
                 lab.removeAttribute('class', 'lab')
+            
             }
 
         });
@@ -53,7 +63,15 @@ function test () {
     });
 
 }
+
+
+
+
+
+
 var buttonCompleted = document.querySelector('#completed');
+mode = "completed";
+
 buttonCompleted.addEventListener('click', function(){
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
@@ -61,9 +79,47 @@ buttonCompleted.addEventListener('click', function(){
         if(element.checked == false){
             lab.style.display = 'none';
         }
+        else{
+            lab.style.display = 'grid'
+        }
 
     });
-})
+});
+
+
+    var buttonAll = document.querySelector('#all');
+    mode = "all";
+
+buttonAll.addEventListener('click', function(){
+    
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    listOfCheckbox.forEach(element => {
+        var lab = element.parentNode
+        if(element.checked == false || element.checked == true ){
+            lab.style.display = 'grid';
+        }
+
+    });
+
+});
+
+
+
+var buttonActive = document.querySelector('#active');
+mode = "active";
+buttonActive.addEventListener('click', function(){
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    listOfCheckbox.forEach(element => {
+        var lab = element.parentNode
+        if(element.checked == false){
+            lab.style.display = 'grid';
+        }
+        else{
+            lab.style.display = 'none';
+        }
+
+    });
+});
 
 
 
