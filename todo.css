@@ -6,6 +6,7 @@ body{
     display: block;
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #f5f5f5;
+  
 
 }
 header{
@@ -63,11 +64,19 @@ label{
 }
  
  /* Där man kan välja att se vilka uppg som är färdiga, aktiva eller alla + hur många som är kvar */
- .footer {
-
+ footer{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+ }
+ .footer {
+    display: flex;
+    width: 45.2%; 
+    background: white;
+    border: 0.5px;
+    border-style: solid;
+    border-color: lightgray; 
+    justify-content: space-between;
   
 }
 
