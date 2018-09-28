@@ -19,40 +19,50 @@ h1{
     font-size: 100px;
     font-weight: 100;
 }
+
+/* Inputen som alla nya uppgifter skrivs in */
 #task{
     padding: 16px 16px 16px 60px;
     width: 40%;
     flex: 25px;
 }
- 
+
+/* Här ligger alla labels (nya uppg) */
 main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-section{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-.check{
-    width: 30px;
-    height: 30px;
-   
-}
+
+
+/* För varje ny uppgift skapas en label. Denna innnehåller checkboxen med klassen .check en p och en knapp med klassen .delete */
 label{
     display: grid;
     grid-template-columns: 1fr 9fr 1fr;
     padding: 16px 16px 16px 60px;
-     width: 40%;
+     width: 40.1%;
      flex: 25px;
      background-color:white;
      align-items: center;
+     border: 0.5px;
      border-style: solid;
-     border-color: black;
+     border-color:lightgray;
  }
+
+ .check{
+    width: 30px;
+    height: 30px;
+   
+}
+
+/* När man checkar i checkboxen (när uppgiften är färdig) */
+.lab p{
+    text-decoration-line: line-through;
+    color: lightgray;
+}
  
+ /* Där man kan välja att se vilka uppg som är färdiga, aktiva eller alla + hur många som är kvar */
  .footer {
 
     display: flex;
@@ -61,20 +71,32 @@ label{
   
 }
 
-
-.lab p{
-    text-decoration-line: line-through;
-    color: lightgray;
-}
-
-
+/* I footern  */
 .filters {
     display: flex;
     list-style-type: none;
     text-align: center;
 }
 
+/* Alla knappar */
+button {
 
+    width: 100%;
+    height: 100%;
+}
+/* Knappen för att radera uppgift (X) */
+.delete{
+    background: none;
+    border: 0;
+}
+/* Radera knappen syns bara när man ställer musen över uppgiftsfältet (labeln) */
+label:hover .delete::after{
+    content: "x";
+    color: red;
+    font-size: large;
+}
+
+/* Responsivitet vid förminskning */
 @media (max-width: 850px){
         #task{
             width: 70%;
@@ -85,9 +107,5 @@ label{
 }
 
 
-button {
 
-    width: 60%;
-    height: 60%;
-}
 

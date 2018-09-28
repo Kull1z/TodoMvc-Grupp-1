@@ -1,3 +1,4 @@
+//skapar ny task med enter kanppen
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
   
@@ -9,6 +10,7 @@ newTask.addEventListener('keyup', function(event){
     }
 }); 
 
+// Tar bort text i den första inputen efter varje enter (efter varje gång ny task skapas)
 newTask.addEventListener('keyup', function(event){
   
     if (event.key === 'Enter')
@@ -17,6 +19,7 @@ newTask.addEventListener('keyup', function(event){
      }
 }); 
 
+// för varje enter knapp så skapas en ny task här
 function addInput(textValue){
 
 //    let input = document.querySelector('#task').value; 
@@ -24,7 +27,8 @@ function addInput(textValue){
    let label = document.createElement('label');  
    let inputt = document.createElement('input');
    let para = document.createElement('p'); 
-   let deleteButton = document.createElement('button')
+   let deleteButton = document.createElement('button');
+   deleteButton.setAttribute('class', 'delete');
    inputt.setAttribute('type', 'checkbox');
    inputt.setAttribute('class', 'check');
    deleteButton.setAttribute('onclick', 'deleteLabel()');
@@ -44,12 +48,13 @@ function addInput(textValue){
    
    });
 
-   test();
+   checkTask();
    
 } 
 var mode;
 
-function test () {
+// Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken
+function checkTask() {
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));   
     listOfCheckbox.forEach(element => {
 
@@ -80,11 +85,9 @@ function test () {
 
 
 
-
+// Nedanstående knappar sorterar ut tasken utifrån alla, activa samt färdiga(icheckade)
 
 var buttonCompleted = document.querySelector('#completed');
-
-
 buttonCompleted.addEventListener('click', function(){
     mode = "completed";
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
@@ -101,9 +104,7 @@ buttonCompleted.addEventListener('click', function(){
 });
 
 
-    var buttonAll = document.querySelector('#all');
-  
-
+var buttonAll = document.querySelector('#all');
 buttonAll.addEventListener('click', function(){
     mode = "all";
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
@@ -120,7 +121,6 @@ buttonAll.addEventListener('click', function(){
 
 
 var buttonActive = document.querySelector('#active');
-
 buttonActive.addEventListener('click', function(){
     mode = "active";
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
