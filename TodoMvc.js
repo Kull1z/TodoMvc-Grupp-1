@@ -31,8 +31,11 @@ function addInput(textValue){
    label.appendChild(inputt);
    para.textContent = textValue;
    label.appendChild(para);
-   main.appendChild(label);
    label.appendChild(deleteButton);
+   if(mode == "completed") {
+       label.style.display = 'none';
+   }
+   main.appendChild(label);
 
    
    deleteButton.addEventListener('click', () => {
@@ -55,16 +58,16 @@ function test () {
             if(element.checked == true){
                
                 lab.setAttribute('class', 'lab');
-                if(mode = "complete"){
+                if(mode == "active"){
                     lab.style.display = 'none';
-                }
-               
-                
-                
+                }  
 
             }
             else{
                 lab.removeAttribute('class', 'lab')
+                if( mode == "completed"){
+                    lab.style.display = 'none';
+                }
             
             }
 
@@ -80,9 +83,10 @@ function test () {
 
 
 var buttonCompleted = document.querySelector('#completed');
-mode = "completed";
+
 
 buttonCompleted.addEventListener('click', function(){
+    mode = "completed";
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
         var lab = element.parentNode
@@ -98,10 +102,10 @@ buttonCompleted.addEventListener('click', function(){
 
 
     var buttonAll = document.querySelector('#all');
-    mode = "all";
+  
 
 buttonAll.addEventListener('click', function(){
-    
+    mode = "all";
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
         var lab = element.parentNode
@@ -116,8 +120,9 @@ buttonAll.addEventListener('click', function(){
 
 
 var buttonActive = document.querySelector('#active');
-mode = "active";
+
 buttonActive.addEventListener('click', function(){
+    mode = "active";
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
         var lab = element.parentNode
