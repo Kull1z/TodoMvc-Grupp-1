@@ -116,6 +116,15 @@ label:hover .delete::after{
         }
 }
 
+/* Test knapp för itemsLeft */
+.tryTodo {
+
+    width: 60%;
+    justify-items: center;
+}
+
+/* Delete knapp för completed tasks */
+
 
 
 

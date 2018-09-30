@@ -38,41 +38,55 @@ function addInput(textValue){
    label.appendChild(deleteButton);
    if(mode == "completed") {
        label.style.display = 'none';
+       label.remove.parentNode;
    }
-
 
    main.appendChild(label);
 
-
-   
    deleteButton.addEventListener('click', () => {
    
            label.remove();
    
    });
 
-   checkTask();
-   itemsLeft();
+   checkTask();  
 
-   
 } 
-
 
 var mode;
 
-
-
-// Skapa function som bestämmer när detta sker nu har du lagt in logiken i när man klickar på active knappen OBS--- RÄKNAR BARA HUR MÅNGA LABELS DOCK LIGGER DEN I SAMMA FUNCTION
+// Fråga hur man bara gör motsatt unchecked funkade ej.
 
 function itemsLeft() {
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
-        var lengthOfCheckboxes = listOfCheckbox.length;
-            document.querySelector('.todo-count').innerHTML = lengthOfCheckboxes;
-                  
-        }
-                     
+
+            // var listOfCheckbox = Array.from(document.querySelectorAll('input[type="checkbox"]:checked').length);
+            // document.querySelector('.todo-count').innerHTML = listOfCheckbox;
+    
+            alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
         
-      
+            //     document.querySelector('.todo-count').innerHTML = listOfCheckbox;
+            //     alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
+            }      
+
+
+var buttonDeleted = document.querySelector('#cCdelete');
+buttonDeleted.addEventListener('click', function(){
+ 
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    listOfCheckbox.forEach(element => {
+        var lab = element.parentNode
+        if(element.checked == true){
+            lab.remove(lab);
+        }
+        else{
+         
+        }
+
+    });
+});
+
+
+
 
 // Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken
 function checkTask() {
@@ -83,7 +97,8 @@ function checkTask() {
         element.addEventListener('change', function(e) {
             var lab = e.target.parentNode
             if(element.checked == true){
-               
+
+
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
                     lab.style.display = 'none';
@@ -93,6 +108,7 @@ function checkTask() {
             }
 
             else{
+            
                 lab.removeAttribute('class', 'lab')
                 if( mode == "completed"){
                     lab.style.display = 'none';
@@ -105,8 +121,6 @@ function checkTask() {
     });
 
 }
-
-
 
 
 // Nedanstående knappar sorterar ut tasken utifrån alla, activa samt färdiga(icheckade)
@@ -143,7 +157,6 @@ buttonAll.addEventListener('click', function(){
 });
 
 
-
 var buttonActive = document.querySelector('#active');
 buttonActive.addEventListener('click', function(){
     mode = "active";
@@ -152,8 +165,6 @@ buttonActive.addEventListener('click', function(){
         var lab = element.parentNode
         if(element.checked == false){
             lab.style.display = 'grid';
-    
-    
             
         }
         else{
