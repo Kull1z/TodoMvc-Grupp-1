@@ -1,4 +1,4 @@
-//skapar ny task med enter kanppen
+// Skapar ny task med enter kanppen
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
   
@@ -19,7 +19,7 @@ newTask.addEventListener('keyup', function(event){
      }
 }); 
 
-// för varje enter knapp så skapas en ny task här
+// För varje enter knapp så skapas en ny task här
 function addInput(textValue){
 
 //    let input = document.querySelector('#task').value; 
@@ -54,6 +54,7 @@ function addInput(textValue){
 } 
 
 var mode;
+document.querySelector('#cCdelete').style.visibility = "hidden";    
 
 // Fråga hur man bara gör motsatt unchecked funkade ej.
 
@@ -69,17 +70,18 @@ function itemsLeft() {
             }      
 
 
+// Knapp som tar bort alla completed syns bara när todolisten har i checkade checkboxes
+
 var buttonDeleted = document.querySelector('#cCdelete');
 buttonDeleted.addEventListener('click', function(){
  
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
+
         var lab = element.parentNode
         if(element.checked == true){
+
             lab.remove(lab);
-        }
-        else{
-         
         }
 
     });
@@ -88,7 +90,7 @@ buttonDeleted.addEventListener('click', function(){
 
 
 
-// Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken
+// Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken. Gör även Clear completed knappen synlig
 function checkTask() {
 
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));   
@@ -98,7 +100,7 @@ function checkTask() {
             var lab = e.target.parentNode
             if(element.checked == true){
 
-
+                document.querySelector('#cCdelete').style.visibility = "visible"; 
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
                     lab.style.display = 'none';
