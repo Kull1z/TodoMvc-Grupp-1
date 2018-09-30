@@ -39,7 +39,10 @@ function addInput(textValue){
    if(mode == "completed") {
        label.style.display = 'none';
    }
+
+
    main.appendChild(label);
+
 
    
    deleteButton.addEventListener('click', () => {
@@ -49,12 +52,31 @@ function addInput(textValue){
    });
 
    checkTask();
+   itemsLeft();
+
    
 } 
+
+
 var mode;
+
+
+
+// Skapa function som bestämmer när detta sker nu har du lagt in logiken i när man klickar på active knappen OBS--- RÄKNAR BARA HUR MÅNGA LABELS DOCK LIGGER DEN I SAMMA FUNCTION
+
+function itemsLeft() {
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+        var lengthOfCheckboxes = listOfCheckbox.length;
+            document.querySelector('.todo-count').innerHTML = lengthOfCheckboxes;
+                  
+        }
+                     
+        
+      
 
 // Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken
 function checkTask() {
+
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));   
     listOfCheckbox.forEach(element => {
 
@@ -65,9 +87,11 @@ function checkTask() {
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
                     lab.style.display = 'none';
+               
                 }  
 
             }
+
             else{
                 lab.removeAttribute('class', 'lab')
                 if( mode == "completed"){
@@ -128,6 +152,9 @@ buttonActive.addEventListener('click', function(){
         var lab = element.parentNode
         if(element.checked == false){
             lab.style.display = 'grid';
+    
+    
+            
         }
         else{
             lab.style.display = 'none';
@@ -135,6 +162,9 @@ buttonActive.addEventListener('click', function(){
 
     });
 });
+
+
+
 
 
 
