@@ -147,6 +147,8 @@ text-decoration-line: underline;
     text-decoration: none;
     cursor: pointer;
     justify-content: space-evenly;
+    margin-right: 15px;
+    font-family: sans-serif;
 
 }
 

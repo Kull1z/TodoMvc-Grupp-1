@@ -15,7 +15,7 @@ newTask.addEventListener('keyup', function(event){
   
     if (event.key === 'Enter')
      {
-        let textValue = document.querySelector('#task').value = '';
+        document.querySelector('#task').value = '';
      }
 }); 
 
@@ -54,7 +54,7 @@ function addInput(textValue){
 } 
 
 var mode;
-document.querySelector('#cCdelete').style.visibility = "hidden";    
+  
 
 // Fråga hur man bara gör motsatt unchecked funkade ej.
 
@@ -70,11 +70,10 @@ function itemsLeft() {
             }      
 
 
-// Knapp som tar bort alla completed syns bara när todolisten har i checkade checkboxes
-
+// Knapp som tar bort alla completed syns bara när todolisten har i checkade checkboxes 
 var buttonDeleted = document.querySelector('#cCdelete');
-buttonDeleted.addEventListener('click', function(){
- 
+buttonDeleted.style.visibility="hidden";
+buttonDeleted.addEventListener('click', function(){ 
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
 
@@ -82,6 +81,7 @@ buttonDeleted.addEventListener('click', function(){
         if(element.checked == true){
 
             lab.remove(lab);
+            buttonDeleted.style.visibility="hidden";
         }
 
     });
@@ -100,7 +100,7 @@ function checkTask() {
             var lab = e.target.parentNode
             if(element.checked == true){
 
-                document.querySelector('#cCdelete').style.visibility = "visible"; 
+                buttonDeleted.style.visibility = "visible"; 
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
                     lab.style.display = 'none';
@@ -115,7 +115,7 @@ function checkTask() {
                 if( mode == "completed"){
                     lab.style.display = 'none';
                 }
-            
+                buttonDeleted.style.visibility = "hidden"; 
             }
 
         });
