@@ -50,6 +50,7 @@ function addInput(textValue){
    });
 
    checkTask();
+   itemsLeft();
    footerHidden.style.visibility="visible";  
 
 } 
@@ -66,17 +67,9 @@ footerHidden.style.visibility="hidden";
 
 function itemsLeft() {
 
-            // var listOfCheckbox = Array.from(document.querySelectorAll('input[type="checkbox"]:checked').length);
-            // document.querySelector('.todo-count').innerHTML = listOfCheckbox;
-    
-            alert(document.querySelectorAll('input[type="checkbox"]:not(:checked)').length);
-            // var hej = document.querySelectorAll('input[type="checkbox"]:not(:checked)'.length);
-            // document.querySelector('todo-count').innerHTML = hej;
-
-
-        
-            //     document.querySelector('.todo-count').innerHTML = listOfCheckbox;
-            //     alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
+           var notChecked = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length;
+           document.querySelector('.todo-count').innerHTML = notChecked + " Items left";
+         
             }      
 
 
