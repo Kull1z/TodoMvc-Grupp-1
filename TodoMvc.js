@@ -49,11 +49,17 @@ function addInput(textValue){
    
    });
 
-   checkTask();  
+   checkTask();
+   footerHidden.style.visibility="visible";  
 
 } 
 
 var mode;
+
+// Måste dock kunna försvinna när allting clears...
+
+var footerHidden = document.querySelector('.footer')
+footerHidden.style.visibility="hidden";
   
 
 // Fråga hur man bara gör motsatt unchecked funkade ej.
@@ -63,7 +69,11 @@ function itemsLeft() {
             // var listOfCheckbox = Array.from(document.querySelectorAll('input[type="checkbox"]:checked').length);
             // document.querySelector('.todo-count').innerHTML = listOfCheckbox;
     
-            alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
+            alert(document.querySelectorAll('input[type="checkbox"]:not(:checked)').length);
+            // var hej = document.querySelectorAll('input[type="checkbox"]:not(:checked)'.length);
+            // document.querySelector('todo-count').innerHTML = hej;
+
+
         
             //     document.querySelector('.todo-count').innerHTML = listOfCheckbox;
             //     alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
@@ -86,6 +96,8 @@ buttonDeleted.addEventListener('click', function(){
 
     });
 });
+
+
 
 
 
@@ -116,6 +128,7 @@ function checkTask() {
                     lab.style.display = 'none';
                 }
                 buttonDeleted.style.visibility = "hidden"; 
+           
             }
 
         });
@@ -175,6 +188,8 @@ buttonActive.addEventListener('click', function(){
 
     });
 });
+
+
 
 
 
