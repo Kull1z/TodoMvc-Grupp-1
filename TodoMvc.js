@@ -51,6 +51,7 @@ function addInput(textValue){
    });
 
    checkTask();
+   itemsLeft();
    footerHidden.style.visibility="visible";  
 
 } 
@@ -67,17 +68,9 @@ footerHidden.style.visibility="hidden";
 
 function itemsLeft() {
 
-            // var listOfCheckbox = Array.from(document.querySelectorAll('input[type="checkbox"]:checked').length);
-            // document.querySelector('.todo-count').innerHTML = listOfCheckbox;
-    
-            alert(document.querySelectorAll('input[type="checkbox"]:not(:checked)').length);
-            // var hej = document.querySelectorAll('input[type="checkbox"]:not(:checked)'.length);
-            // document.querySelector('todo-count').innerHTML = hej;
-
-
-        
-            //     document.querySelector('.todo-count').innerHTML = listOfCheckbox;
-            //     alert(document.querySelectorAll('input[type="checkbox"]:checked').length);
+           var notChecked = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length;
+           document.querySelector('.todo-count').innerHTML = notChecked + " Items left";
+         
             }      
 
 
@@ -115,7 +108,7 @@ function checkTask() {
             
 
             if(element.checked == true){
-
+                itemsLeft();
                 buttonDeleted.style.visibility = "visible"; 
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
@@ -131,6 +124,7 @@ function checkTask() {
                 if( mode == "completed"){
                     lab.style.display = 'none';
                 }
+                itemsLeft();
                 buttonDeleted.style.visibility = "hidden"; 
            
             }
