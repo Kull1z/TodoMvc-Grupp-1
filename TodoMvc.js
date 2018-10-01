@@ -5,6 +5,7 @@ newTask.addEventListener('keyup', function(event){
     if (event.key === 'Enter') {
          event.preventDefault();
         let textValue = document.querySelector('#task').value;
+        checkAllBtn.style.visibility="visible";
         return addInput(textValue);
 
     }
@@ -105,11 +106,14 @@ buttonDeleted.addEventListener('click', function(){
 // Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken. Gör även Clear completed knappen synlig
 function checkTask() {
 
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));   
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));  
     listOfCheckbox.forEach(element => {
 
         element.addEventListener('change', function(e) {
             var lab = e.target.parentNode
+
+            
+
             if(element.checked == true){
 
                 buttonDeleted.style.visibility = "visible"; 
@@ -134,6 +138,9 @@ function checkTask() {
         });
 
     });
+
+//    var itemsLeft = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length
+
 
 }
 
@@ -190,7 +197,19 @@ buttonActive.addEventListener('click', function(){
 });
 
 
-
+//Knappen som checkar i alla uppg
+var checkAllBtn = document.querySelector('#checkAll');
+checkAllBtn.style.visibility="hidden";
+checkAllBtn.addEventListener('click', function(){ 
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    listOfCheckbox.forEach(element => {
+        if(element.checked == false){
+            element.checked = true;
+        }
+    
+        
+    });
+});
 
 
 
