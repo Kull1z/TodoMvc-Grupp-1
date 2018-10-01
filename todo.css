@@ -24,10 +24,11 @@ h1{
 
 /* Inputen som alla nya uppgifter skrivs in */
 #task{
-    padding: 16px 16px 16px 60px;
-    width: 40%;
-    flex: 25px;
+    padding: 16px 16px 16px 10px;
+    width: 85%;
+    margin-left: 15px;
 }
+
 
 /* Här ligger alla labels (nya uppg) */
 main{
@@ -36,7 +37,19 @@ main{
     align-items: center;
 }
 
-
+/* Labeln som finns från början (där man skriver in nya uppg) */
+#mainLab{
+    display: grid;
+    grid-template-columns: 1fr 20fr;
+    padding: 16px 35px 16px 43px;
+     width: 40.1%;
+     flex: 25px;
+     background-color:white;
+     align-items: center;
+     border: 0.5px;
+     border-style: solid;
+     border-color:lightgray;
+}
 
 /* För varje ny uppgift skapas en label. Denna innnehåller checkboxen med klassen .check en p och en knapp med klassen .delete */
 label{
@@ -77,6 +90,7 @@ label{
     border: 0.5px;
     border-style: solid;
     border-color: lightgray; 
+    height: 40px;
   
 }
 
@@ -105,9 +119,20 @@ label:hover .delete::after{
     font-size: large;
 }
 
+#checkAll{
+    background: none;
+    border: 0;
+}
+
+#checkAll::after{
+    content: "v";
+    color: gray;
+    font-size: large;
+}
+
 /* Responsivitet vid förminskning */
 @media (max-width: 850px){
-        #task{
+        #mainLab{
             width: 70%;
         }
         label{
@@ -162,9 +187,29 @@ text-decoration-line: underline;
     padding-left: 2%;
     display: flex;
     flex: auto;
+    align-self: center
 
 }
 
+ /* #checkAll {
+    width: 60px;
+    height: 34px;
+    font-size: 0;
+    position: absolute;
+    top: -52px;
+    left: -13px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+ #checkAll:before {
+    color: #737373;
+}
+#checkAll:before {
+    content: '❯';
+    font-size: 22px;
+    color: #e6e6e6;
+    padding: 10px 27px 10px 27px;
+} */
 
 
 
