@@ -104,7 +104,7 @@ function checkTask() {
         element.addEventListener('change', function(e) {
             var lab = e.target.parentNode
             if(element.checked == true){
-
+                itemsLeft();
                 buttonDeleted.style.visibility = "visible"; 
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
@@ -120,6 +120,7 @@ function checkTask() {
                 if( mode == "completed"){
                     lab.style.display = 'none';
                 }
+                itemsLeft();
                 buttonDeleted.style.visibility = "hidden"; 
            
             }
