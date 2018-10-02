@@ -24,9 +24,9 @@ h1{
 
 /* Inputen som alla nya uppgifter skrivs in */
 #task{
-    padding: 16px 16px 16px 10px;
+    padding: 16px 90px 16px 12px;
     width: 85%;
-    margin-left: 15px;
+    
 }
 
 
@@ -39,11 +39,9 @@ main{
 
 /* Labeln som finns från början (där man skriver in nya uppg) */
 #mainLab{
-    display: grid;
-    grid-template-columns: 1fr 20fr;
-    padding: 16px 35px 16px 43px;
-     width: 40.1%;
-     flex: 25px;
+
+    padding: 16px 16px 16px 16px;
+     width: 44.3%;
      background-color:white;
      align-items: center;
      border: 0.5px;
@@ -55,7 +53,7 @@ main{
 label{
     display: grid;
     grid-template-columns: 1fr 9fr 1fr;
-    padding: 16px 16px 16px 60px;
+    padding: 16px 62px 16px 16px;
      width: 40.1%;
      flex: 25px;
      background-color:white;
@@ -85,7 +83,7 @@ label{
  }
  .footer {
     display: flex;
-    width: 41.5%; 
+    width: 44.8%; 
     background: white;
     border: 0.5px;
     border-style: solid;
@@ -102,7 +100,7 @@ label{
     /* The third layer shadow */
     0 20px 1px -9px rgba(0,0,0,0.15);
     /* Padding for demo purposes */
-    padding: 30px;
+    padding: 13px;
    
   
 }
@@ -135,12 +133,13 @@ label:hover .delete::after{
 #checkAll{
     background: none;
     border: 0;
+
 }
 
 #checkAll::after{
-    content: "v";
     color: gray;
     font-size: large;
+    
 }
 
 /* Responsivitet vid förminskning */
@@ -149,6 +148,9 @@ label:hover .delete::after{
             width: 70%;
         }
         label{
+            width: 70%;
+        }
+        .footer {
             width: 70%;
         }
 }
