@@ -85,12 +85,25 @@ label{
  }
  .footer {
     display: flex;
-    width: 45.2%; 
+    width: 47%; 
     background: white;
     border: 0.5px;
     border-style: solid;
     border-color: lightgray; 
-    height: 40px;
+    box-shadow:
+    /* The top layer shadow */
+    0 1px 1px rgba(0,0,0,0.15),
+    /* The second layer */
+    0 10px 0 -5px #eee,
+    /* The second layer shadow */
+    0 10px 1px -4px rgba(0,0,0,0.15),
+     /* The third layer */
+    0 20px 0 -10px #eee,
+    /* The third layer shadow */
+    0 20px 1px -9px rgba(0,0,0,0.15);
+    /* Padding for demo purposes */
+    padding: 30px;
+   
   
 }
 
@@ -210,6 +223,8 @@ text-decoration-line: underline;
     color: #e6e6e6;
     padding: 10px 27px 10px 27px;
 } */
+
+
 
 
 
