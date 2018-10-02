@@ -2,11 +2,12 @@
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
   
-    if (event.key === 'Enter') {
-         event.preventDefault();
-        let textValue = document.querySelector('#task').value;
-        checkAllBtn.style.visibility="visible";
-        return addInput(textValue);
+    if (event.key === 'Enter')
+    {
+            event.preventDefault();
+            let textValue = document.querySelector('#task').value;
+            checkAllBtn.style.visibility="visible";
+            return addInput(textValue);
 
     }
 }); 
@@ -22,6 +23,7 @@ newTask.addEventListener('keyup', function(event){
 
 // För varje enter knapp så skapas en ny task här
 function addInput(textValue){
+
 
 //    let input = document.querySelector('#task').value; 
    var main = document.querySelector('main');
@@ -199,6 +201,12 @@ checkAllBtn.addEventListener('click', function(){
     listOfCheckbox.forEach(element => {
         if(element.checked == false){
             element.checked = true;
+            buttonDeleted.style.visibility="visible";
+        }
+        else if(element.checked == true) {
+
+           element.checked = false;
+           buttonDeleted.style.visibility="hidden";
         }
     
         
