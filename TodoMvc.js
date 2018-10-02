@@ -1,15 +1,16 @@
 // Skapar ny task med enter kanppen
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
-  
+  if (document.querySelector('#task').value != '') {
+
     if (event.key === 'Enter')
     {
             event.preventDefault();
             let textValue = document.querySelector('#task').value;
             checkAllBtn.style.visibility="visible";
             return addInput(textValue);
-
     }
+  }
 }); 
 
 // Tar bort text i den första inputen efter varje enter (efter varje gång ny task skapas)
@@ -66,7 +67,7 @@ var footerHidden = document.querySelector('.footer')
 footerHidden.style.visibility="hidden";
   
 
-// Fråga hur man bara gör motsatt unchecked funkade ej.
+// Uppdaterar för varje förändring på sidan itemsLeft
 
 function itemsLeft() {
 
@@ -212,6 +213,16 @@ checkAllBtn.addEventListener('click', function(){
         
     });
 });
+
+
+function dontAllowEmptyTasks() {
+
+    if (document.querySelector('#task').value != 0) {
+
+
+        
+    }
+}
 
 
 
