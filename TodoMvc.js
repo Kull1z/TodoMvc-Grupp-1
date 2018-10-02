@@ -88,6 +88,7 @@ buttonDeleted.addEventListener('click', function(){
         if(element.checked == true){
 
             lab.remove(lab);
+            itemsLeft();
             buttonDeleted.style.visibility="hidden";
         }
 
@@ -101,7 +102,7 @@ buttonDeleted.addEventListener('click', function(){
 
 // Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken. Gör även Clear completed knappen synlig
 function checkTask() {
-
+    
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));  
     listOfCheckbox.forEach(element => {
 
