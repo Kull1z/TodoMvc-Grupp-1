@@ -26,7 +26,8 @@ h1{
 #task{
     padding: 16px 90px 16px 12px;
     width: 85%;
-    
+    -moz-appearance: none;
+    -webkit-appearance: caret;
 }
 
 
