@@ -187,21 +187,6 @@ button {
 
 }
 
-
-
-/* Responsivitet vid förminskning */
-@media (max-width: 850px){
-        #mainLab{
-            width: 70%;
-        }
-        label{
-            width: 70%;
-        }
-        .footer {
-            width: 70%;
-        }
-}
-
 /* Test knapp för itemsLeft */
 .tryTodo {
     display: flex;
@@ -224,6 +209,23 @@ cursor: pointer;
 #cCdelete:hover {
 text-decoration-line: underline;
 }
+
+
+
+/* Responsivitet vid förminskning */
+@media (max-width: 850px){
+        #mainLab{
+            width: 70%;
+        }
+        label{
+            width: 70%;
+        }
+        .footer {
+            width: 70%;
+        }
+}
+
+
 
 
 
