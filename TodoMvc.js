@@ -5,7 +5,7 @@ newTask.addEventListener('keyup', function(event){
     if (event.key === 'Enter') {
          event.preventDefault();
         let textValue = document.querySelector('#task').value;
-        checkAllBtn.style.visibility="visible";
+        // checkAllBtn.style.visibility="visible";
         return addInput(textValue);
 
     }
@@ -47,11 +47,13 @@ function addInput(textValue){
    deleteButton.addEventListener('click', () => {
    
            label.remove();
+           checkAllBtnFunc();
    
    });
 
    checkTask();
    itemsLeft();
+   checkAllBtnFunc();
    footerHidden.style.visibility="visible";  
 
 } 
@@ -64,7 +66,6 @@ var footerHidden = document.querySelector('.footer')
 footerHidden.style.visibility="hidden";
   
 
-// Fråga hur man bara gör motsatt unchecked funkade ej.
 
 function itemsLeft() {
 
@@ -109,7 +110,7 @@ function checkTask() {
 
             if(element.checked == true){
                 itemsLeft();
-                buttonDeleted.style.visibility = "visible"; 
+               // buttonDeleted.style.visibility = "visible"; 
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
                     lab.style.display = 'none';
@@ -122,12 +123,14 @@ function checkTask() {
             
                 lab.removeAttribute('class', 'lab')
                 if( mode == "completed"){
-                    lab.style.display = 'none';
+                    lab.style.display = 'none'; 
+                   
                 }
                 itemsLeft();
-                buttonDeleted.style.visibility = "hidden"; 
-           
+              
+              
             }
+            ifAnyTaskIsChecked();
 
         });
 
@@ -136,6 +139,21 @@ function checkTask() {
 //    var itemsLeft = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length
 
 
+}
+
+
+function ifAnyTaskIsChecked(){
+    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    if(listOfCheckbox.includes(('input.check').checked )){
+        buttonDeleted.style.visibility = "visible";
+    }
+    else{
+        buttonDeleted.style.visibility = "hidden";
+
+    }
+
+   
+    
 }
 
 
@@ -194,14 +212,38 @@ buttonActive.addEventListener('click', function(){
 //Knappen som checkar i alla uppg
 var checkAllBtn = document.querySelector('#checkAll');
 checkAllBtn.style.visibility="hidden";
+//Gör knappen osynlig om det inte finns några uppg och vv
+function checkAllBtnFunc(){
+
+var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+if(listOfCheckbox.length > 0){
+    checkAllBtn.style.visibility="visible";
+}
+else{
+    checkAllBtn.style.visibility="hidden";
+}
+
+}
+
+
 checkAllBtn.addEventListener('click', function(){ 
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
         if(element.checked == false){
             element.checked = true;
-        }
-    
-        
+            var lab = element.parentNode;
+            lab.setAttribute('class', 'lab');
+            buttonDeleted.style.visibility="visible";
+            itemsLeft();
+
+        }  
+        else{
+            element.checked = false;
+            var lab = element.parentNode;
+            lab.removeAttribute('class');
+            buttonDeleted.style.visibility="hidden";
+            itemsLeft();
+        }  
     });
 });
 
