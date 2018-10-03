@@ -1,14 +1,25 @@
 // Skapar ny task med enter kanppen
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
+<<<<<<< HEAD
   
     if (event.key === 'Enter') {
          event.preventDefault();
         let textValue = document.querySelector('#task').value;
         // checkAllBtn.style.visibility="visible";
         return addInput(textValue);
+=======
+  if (document.querySelector('#task').value != '') {
+>>>>>>> 79dd3c72e2f5d1255544cebe5a2a2196bf3fe865
 
+    if (event.key === 'Enter')
+    {
+            event.preventDefault();
+            let textValue = document.querySelector('#task').value;
+            checkAllBtn.style.visibility="visible";
+            return addInput(textValue);
     }
+  }
 }); 
 
 // Tar bort text i den första inputen efter varje enter (efter varje gång ny task skapas)
@@ -22,6 +33,7 @@ newTask.addEventListener('keyup', function(event){
 
 // För varje enter knapp så skapas en ny task här
 function addInput(textValue){
+
 
 //    let input = document.querySelector('#task').value; 
    var main = document.querySelector('main');
@@ -66,6 +78,10 @@ var footerHidden = document.querySelector('.footer')
 footerHidden.style.visibility="hidden";
   
 
+<<<<<<< HEAD
+=======
+// Uppdaterar för varje förändring på sidan itemsLeft
+>>>>>>> 79dd3c72e2f5d1255544cebe5a2a2196bf3fe865
 
 function itemsLeft() {
 
@@ -86,6 +102,7 @@ buttonDeleted.addEventListener('click', function(){
         if(element.checked == true){
 
             lab.remove(lab);
+            itemsLeft();
             buttonDeleted.style.visibility="hidden";
         }
 
@@ -99,7 +116,7 @@ buttonDeleted.addEventListener('click', function(){
 
 // Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken. Gör även Clear completed knappen synlig
 function checkTask() {
-
+    
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));  
     listOfCheckbox.forEach(element => {
 
@@ -246,6 +263,16 @@ checkAllBtn.addEventListener('click', function(){
         }  
     });
 });
+
+
+function dontAllowEmptyTasks() {
+
+    if (document.querySelector('#task').value != 0) {
+
+
+        
+    }
+}
 
 
 

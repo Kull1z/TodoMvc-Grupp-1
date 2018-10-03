@@ -24,9 +24,10 @@ h1{
 
 /* Inputen som alla nya uppgifter skrivs in */
 #task{
-    padding: 16px 16px 16px 10px;
+    padding: 16px 90px 16px 12px;
     width: 85%;
-    margin-left: 15px;
+    -moz-appearance: none;
+    -webkit-appearance: caret;
 }
 
 
@@ -39,11 +40,9 @@ main{
 
 /* Labeln som finns från början (där man skriver in nya uppg) */
 #mainLab{
-    display: grid;
-    grid-template-columns: 1fr 20fr;
-    padding: 16px 35px 16px 43px;
-     width: 40.1%;
-     flex: 25px;
+
+    padding: 16px 16px 16px 16px;
+     width: 44.3%;
      background-color:white;
      align-items: center;
      border: 0.5px;
@@ -55,7 +54,7 @@ main{
 label{
     display: grid;
     grid-template-columns: 1fr 9fr 1fr;
-    padding: 16px 16px 16px 60px;
+    padding: 16px 62px 16px 16px;
      width: 40.1%;
      flex: 25px;
      background-color:white;
@@ -85,12 +84,25 @@ label{
  }
  .footer {
     display: flex;
-    width: 45.2%; 
+    width: 44.8%; 
     background: white;
     border: 0.5px;
     border-style: solid;
     border-color: lightgray; 
-    height: 40px;
+    box-shadow:
+    /* The top layer shadow */
+    0 1px 1px rgba(0,0,0,0.15),
+    /* The second layer */
+    0 10px 0 -5px #eee,
+    /* The second layer shadow */
+    0 10px 1px -4px rgba(0,0,0,0.15),
+     /* The third layer */
+    0 20px 0 -10px #eee,
+    /* The third layer shadow */
+    0 20px 1px -9px rgba(0,0,0,0.15);
+    /* Padding for demo purposes */
+    padding: 13px;
+   
   
 }
 
@@ -122,12 +134,13 @@ label:hover .delete::after{
 #checkAll{
     background: none;
     border: 0;
+
 }
 
 #checkAll::after{
-    content: "v";
     color: gray;
     font-size: large;
+    
 }
 
 /* Responsivitet vid förminskning */
@@ -136,6 +149,9 @@ label:hover .delete::after{
             width: 70%;
         }
         label{
+            width: 70%;
+        }
+        .footer {
             width: 70%;
         }
 }
@@ -210,6 +226,8 @@ text-decoration-line: underline;
     color: #e6e6e6;
     padding: 10px 27px 10px 27px;
 } */
+
+
 
 
 
