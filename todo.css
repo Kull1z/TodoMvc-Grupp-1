@@ -10,6 +10,9 @@ body{
   
 
 }
+
+/* HEADER */
+
 header{
     display: flex;
     flex-direction: column;
@@ -30,6 +33,22 @@ h1{
     -webkit-appearance: caret;
 }
 
+
+
+ /* Knappen som checkar i alla checkboxar */
+#checkAll{
+    background: none;
+    border: 0;
+
+}
+
+#checkAll::after{
+    color: gray;
+    font-size: large;
+    
+}
+
+/* MAIN */
 
 /* Här ligger alla labels (nya uppg) */
 main{
@@ -75,7 +94,17 @@ label{
     text-decoration-line: line-through;
     color: lightgray;
 }
+
+/* Radera knappen syns bara när man ställer musen över uppgiftsfältet (labeln) */
+label:hover .delete::after{
+    content: "x";
+    color: red;
+    font-size: large;
+}
  
+
+/* FOOTER */
+
  /* Där man kan välja att se vilka uppg som är färdiga, aktiva eller alla + hur många som är kvar */
  footer{
     display: flex;
@@ -124,24 +153,41 @@ button {
     background: none;
     border: 0;
 }
-/* Radera knappen syns bara när man ställer musen över uppgiftsfältet (labeln) */
-label:hover .delete::after{
-    content: "x";
-    color: red;
-    font-size: large;
+/* Knappar för filters */
+
+.filterButtons {
+    display: flex;
+    flex: auto;
+    border-style:none;
+    text-decoration: none;
+    cursor: pointer;
+    justify-content: space-evenly;
+    margin-right: 15px;
+    font-family: sans-serif;
+
 }
 
-#checkAll{
-    background: none;
-    border: 0;
+.filterButtons:hover {
+
+    text-decoration-line: underline;
+}
+
+.filterButtons.selected{
+    border: 0.5px;
+    border-style: solid;
+    border-color: gray;
+}
+
+
+.todo-count {
+    padding-left: 2%;
+    display: flex;
+    flex: auto;
+    align-self: center
 
 }
 
-#checkAll::after{
-    color: gray;
-    font-size: large;
-    
-}
+
 
 /* Responsivitet vid förminskning */
 @media (max-width: 850px){
@@ -179,53 +225,8 @@ cursor: pointer;
 text-decoration-line: underline;
 }
 
-/* Knappar för filters */
-
-.filterButtons {
-    display: flex;
-    flex: auto;
-    border-style:none;
-    text-decoration: none;
-    cursor: pointer;
-    justify-content: space-evenly;
-    margin-right: 15px;
-    font-family: sans-serif;
-
-}
-
-.filterButtons:hover {
-
-    text-decoration-line: underline;
-}
 
 
-.todo-count {
-    padding-left: 2%;
-    display: flex;
-    flex: auto;
-    align-self: center
-
-}
-
- /* #checkAll {
-    width: 60px;
-    height: 34px;
-    font-size: 0;
-    position: absolute;
-    top: -52px;
-    left: -13px;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
- #checkAll:before {
-    color: #737373;
-}
-#checkAll:before {
-    content: '❯';
-    font-size: 22px;
-    color: #e6e6e6;
-    padding: 10px 27px 10px 27px;
-} */
 
 
 

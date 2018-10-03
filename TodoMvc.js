@@ -1,16 +1,7 @@
 // Skapar ny task med enter kanppen
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
-<<<<<<< HEAD
-  
-    if (event.key === 'Enter') {
-         event.preventDefault();
-        let textValue = document.querySelector('#task').value;
-        // checkAllBtn.style.visibility="visible";
-        return addInput(textValue);
-=======
-  if (document.querySelector('#task').value != '') {
->>>>>>> 79dd3c72e2f5d1255544cebe5a2a2196bf3fe865
+  if (document.querySelector('#task').value != '') { //skapar inte en ny task om rutan är tom
 
     if (event.key === 'Enter')
     {
@@ -33,9 +24,6 @@ newTask.addEventListener('keyup', function(event){
 
 // För varje enter knapp så skapas en ny task här
 function addInput(textValue){
-
-
-//    let input = document.querySelector('#task').value; 
    var main = document.querySelector('main');
    let label = document.createElement('label');  
    let inputt = document.createElement('input');
@@ -66,23 +54,14 @@ function addInput(textValue){
    checkTask();
    itemsLeft();
    checkAllBtnFunc();
-   footerHidden.style.visibility="visible";  
+  
 
 } 
 
+//vilken av filterknapparna som är intryckt (active, all eller completed)
 var mode;
 
-// Måste dock kunna försvinna när allting clears...
-
-var footerHidden = document.querySelector('.footer')
-footerHidden.style.visibility="hidden";
-  
-
-<<<<<<< HEAD
-=======
 // Uppdaterar för varje förändring på sidan itemsLeft
->>>>>>> 79dd3c72e2f5d1255544cebe5a2a2196bf3fe865
-
 function itemsLeft() {
 
            var notChecked = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length;
@@ -103,6 +82,7 @@ buttonDeleted.addEventListener('click', function(){
 
             lab.remove(lab);
             itemsLeft();
+            checkAllBtnFunc()
             buttonDeleted.style.visibility="hidden";
         }
 
@@ -127,7 +107,6 @@ function checkTask() {
 
             if(element.checked == true){
                 itemsLeft();
-               // buttonDeleted.style.visibility = "visible"; 
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
                     lab.style.display = 'none';
@@ -153,15 +132,12 @@ function checkTask() {
 
     });
 
-//    var itemsLeft = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length
-
-
 }
 
 
 function ifAnyTaskIsChecked(){
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
-    if(listOfCheckbox.includes(('input.check').checked )){
+    var anyCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
+    if(anyCheckBox.length > 0 ){
         buttonDeleted.style.visibility = "visible";
     }
     else{
@@ -179,6 +155,9 @@ function ifAnyTaskIsChecked(){
 var buttonCompleted = document.querySelector('#completed');
 buttonCompleted.addEventListener('click', function(){
     mode = "completed";
+    buttonAll.classList.remove('selected');
+    buttonActive.classList.remove('selected'); //tar bort border från de andra knapparna
+    buttonCompleted.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
         var lab = element.parentNode
@@ -196,6 +175,9 @@ buttonCompleted.addEventListener('click', function(){
 var buttonAll = document.querySelector('#all');
 buttonAll.addEventListener('click', function(){
     mode = "all";
+    buttonCompleted.classList.remove('selected');
+    buttonActive.classList.remove('selected'); //tar bort border från de andra knapparna
+    buttonAll.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
         var lab = element.parentNode
@@ -211,6 +193,9 @@ buttonAll.addEventListener('click', function(){
 var buttonActive = document.querySelector('#active');
 buttonActive.addEventListener('click', function(){
     mode = "active";
+    buttonCompleted.classList.remove('selected');
+    buttonAll.classList.remove('selected'); //tar bort border från de andra knapparna
+    buttonActive.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
     listOfCheckbox.forEach(element => {
         var lab = element.parentNode
@@ -229,15 +214,24 @@ buttonActive.addEventListener('click', function(){
 //Knappen som checkar i alla uppg
 var checkAllBtn = document.querySelector('#checkAll');
 checkAllBtn.style.visibility="hidden";
+
+
+
+var footerHidden = document.querySelector('.footer') //Footern
+footerHidden.style.visibility="hidden";
 //Gör knappen osynlig om det inte finns några uppg och vv
 function checkAllBtnFunc(){
 
 var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
 if(listOfCheckbox.length > 0){
-    checkAllBtn.style.visibility="visible";
+    checkAllBtn.style.visibility="visible"; //Knappen som checkar i alla uppg ska bara synas när det finns någon task
+    footerHidden.style.visibility="visible"; //Footern ska bara synas om det finns några tasks
 }
 else{
     checkAllBtn.style.visibility="hidden";
+    footerHidden.style.visibility="hidden";
+    buttonDeleted.style.visibility="hidden"; 
+
 }
 
 }
@@ -245,34 +239,46 @@ else{
 
 checkAllBtn.addEventListener('click', function(){ 
     var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
-    listOfCheckbox.forEach(element => {
-        if(element.checked == false){
-            element.checked = true;
+    var checkedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
+    var noCheckedCheckBox = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
+   
+        if(checkedCheckBox.length >= 0 && noCheckedCheckBox.length != 0){ 
+            
+        listOfCheckbox.forEach(element => {
+             element.checked = true;
             var lab = element.parentNode;
             lab.setAttribute('class', 'lab');
+            if(mode=='active'){
+                lab.style.display = 'none';
+            }
+            else{
+                lab.style.display = 'grid';
+            }
+        })          
             buttonDeleted.style.visibility="visible";
             itemsLeft();
-
-        }  
-        else{
+        }
+        else {
+            listOfCheckbox.forEach(element => {
             element.checked = false;
             var lab = element.parentNode;
             lab.removeAttribute('class');
+            if(mode=='completed'){
+                lab.style.display = 'none';
+            }
+            else{
+                lab.style.display = 'grid';
+            }
+
+            })
             buttonDeleted.style.visibility="hidden";
             itemsLeft();
-        }  
-    });
+        }
+
 });
 
 
-function dontAllowEmptyTasks() {
 
-    if (document.querySelector('#task').value != 0) {
-
-
-        
-    }
-}
 
 
 
