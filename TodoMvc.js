@@ -1,16 +1,7 @@
 // Skapar ny task med enter kanppen
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
-<<<<<<< HEAD
-  
-    if (event.key === 'Enter') {
-         event.preventDefault();
-        let textValue = document.querySelector('#task').value;
-        // checkAllBtn.style.visibility="visible";
-        return addInput(textValue);
-=======
   if (document.querySelector('#task').value != '') {
->>>>>>> 79dd3c72e2f5d1255544cebe5a2a2196bf3fe865
 
     if (event.key === 'Enter')
     {
@@ -78,10 +69,6 @@ var footerHidden = document.querySelector('.footer')
 footerHidden.style.visibility="hidden";
   
 
-<<<<<<< HEAD
-=======
-// Uppdaterar för varje förändring på sidan itemsLeft
->>>>>>> 79dd3c72e2f5d1255544cebe5a2a2196bf3fe865
 
 function itemsLeft() {
 
@@ -127,7 +114,7 @@ function checkTask() {
 
             if(element.checked == true){
                 itemsLeft();
-               // buttonDeleted.style.visibility = "visible"; 
+            //    buttonDeleted.style.visibility = "visible"; 
                 lab.setAttribute('class', 'lab');
                 if(mode == "active"){
                     lab.style.display = 'none';
@@ -265,14 +252,6 @@ checkAllBtn.addEventListener('click', function(){
 });
 
 
-function dontAllowEmptyTasks() {
-
-    if (document.querySelector('#task').value != 0) {
-
-
-        
-    }
-}
 
 
 
