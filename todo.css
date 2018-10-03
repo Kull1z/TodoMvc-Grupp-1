@@ -74,7 +74,7 @@ label{
     display: grid;
     grid-template-columns: 1fr 9fr 1fr;
     padding: 16px 62px 16px 16px;
-     width: 40.1%;
+     width: 41.3%;
      flex: 25px;
      background-color:white;
      align-items: center;
@@ -113,7 +113,7 @@ label:hover .delete::after{
  }
  .footer {
     display: flex;
-    width: 44.8%; 
+    width: 44.7%; 
     background: white;
     border: 0.5px;
     border-style: solid;
@@ -213,15 +213,60 @@ text-decoration-line: underline;
 
 
 /* Responsivitet vid förminskning */
-@media (max-width: 850px){
+@media (max-width: 1500px){
+
+    #mainLab{
+        width: 70%;
+    }
+    label{
+        width: 65.5%;
+    }
+    .footer {
+        width: 70.6%;
+    }
+
+}
+
+@media (max-width: 800px){
+    
+    #mainLab{
+             width: 70%;
+         }
+         #task{
+             width: 50%;
+         }
+         label{
+             width: 62%;
+         }
+         .footer {
+             width: 71%;
+         }
+ 
+ 
+ }
+ 
+
+
+@media (max-width: 400px){
         #mainLab{
             width: 70%;
         }
+        #task{
+            width: 60%;
+        }
         label{
-            width: 70%;
+            width: 57%;
+        }
+        label p{
+            margin: 10px;
         }
         .footer {
-            width: 70%;
+            display: flex;       
+            width: 71%;
+            font-size: small;
+        }
+        .filterButtons{
+            font-size: x-small;
         }
 }
 
