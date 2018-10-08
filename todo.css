@@ -74,7 +74,7 @@ label{
     display: grid;
     grid-template-columns: 1fr 9fr 1fr;
     padding: 16px 62px 16px 16px;
-     width: 41.3%;
+     width: 42%;
      flex: 25px;
      background-color:white;
      align-items: center;
@@ -93,6 +93,9 @@ label{
 .lab p{
     text-decoration-line: line-through;
     color: lightgray;
+    transition: all 1s;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.29, 1.01, 1, -0.68);
 }
 
 /* Radera knappen syns bara när man ställer musen över uppgiftsfältet (labeln) */
