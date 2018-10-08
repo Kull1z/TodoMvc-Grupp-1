@@ -1,7 +1,7 @@
 // Skapar ny task med enter kanppen
 var newTask= document.querySelector('#task'); 
 newTask.addEventListener('keyup', function(event){
-  if (document.querySelector('#task').value != '') { //skapar inte en ny task om rutan är tom
+  if (document.querySelector('#task').value != '') { //Skapar inte en ny task om paragrafen är tom
 
     if (event.key === 'Enter')
     {
@@ -22,7 +22,7 @@ newTask.addEventListener('keyup', function(event){
      }
 }); 
 
-// För varje enter knapp så skapas en ny task här
+// För varje klick på enter knappen så skapas en ny task här
 function addInput(textValue){
    let main = document.querySelector('main'); //
    let label = document.createElement('label');  
@@ -48,17 +48,17 @@ function addInput(textValue){
    
            label.remove();
            checkAllBtnFunc();
-   
+           itemsLeft();
+
    });
 
    checkTask();
    itemsLeft();
    checkAllBtnFunc();
   
-
 } 
 
-//vilken av filterknapparna som är intryckt (active, all eller completed)
+//Vilken av filterknapparna som är intryckt (active, all eller completed)
 var mode;
 
 // Uppdaterar för varje förändring på sidan itemsLeft
@@ -68,7 +68,6 @@ function itemsLeft() {
            document.querySelector('.todo-count').innerHTML = notChecked + " Items left";
          
             }      
-
 
 // Knapp som tar bort alla completed syns bara när todolisten har i checkade checkboxes 
 var buttonDeleted = document.querySelector('#cCdelete');
@@ -88,10 +87,6 @@ buttonDeleted.addEventListener('click', function(){
 
     });
 });
-
-
-
-
 
 
 // Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken. Gör även Clear completed knappen synlig
@@ -144,11 +139,7 @@ function ifAnyTaskIsChecked(){
         buttonDeleted.style.visibility = "hidden";
 
     }
-
-   
-    
 }
-
 
 // Nedanstående knappar sorterar ut tasken utifrån alla, activa samt färdiga(icheckade)
 
@@ -156,9 +147,9 @@ var buttonCompleted = document.querySelector('#completed');
 buttonCompleted.addEventListener('click', function(){
     mode = "completed";
     buttonAll.classList.remove('selected');
-    buttonActive.classList.remove('selected'); //tar bort border från de andra knapparna
-    buttonCompleted.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
-    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
+    buttonActive.classList.remove('selected');           //Tar bort border från de andra knapparna
+    buttonCompleted.className += " " + 'selected';       //Lägger till en border till knappen när den är tryckt på.
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); 
     listOfCheckbox.forEach(element => {
         let lab = element.parentNode //
         if(element.checked == false){
@@ -176,9 +167,9 @@ var buttonAll = document.querySelector('#all');
 buttonAll.addEventListener('click', function(){
     mode = "all";
     buttonCompleted.classList.remove('selected');
-    buttonActive.classList.remove('selected'); //tar bort border från de andra knapparna
-    buttonAll.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
-    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
+    buttonActive.classList.remove('selected');                      //Tar bort border från de andra knapparna
+    buttonAll.className += " " + 'selected';                       //Lägger till en border till knappen när den är tryckt på.
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); 
     listOfCheckbox.forEach(element => {
         let lab = element.parentNode //
         if(element.checked == false || element.checked == true ){
@@ -194,9 +185,9 @@ var buttonActive = document.querySelector('#active');
 buttonActive.addEventListener('click', function(){
     mode = "active";
     buttonCompleted.classList.remove('selected');
-    buttonAll.classList.remove('selected'); //tar bort border från de andra knapparna
-    buttonActive.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
-    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
+    buttonAll.classList.remove('selected');                       //Tar bort border från de andra knapparna
+    buttonActive.className += " " + 'selected';                   //Lägger till en border till knappen när den är tryckt på.
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); 
     listOfCheckbox.forEach(element => {
         let lab = element.parentNode //
         if(element.checked == false){
@@ -211,21 +202,21 @@ buttonActive.addEventListener('click', function(){
 });
 
 
-//Knappen som checkar i alla uppg
+//Knappen som checkar i alla uppgifter
 var checkAllBtn = document.querySelector('#checkAll');
 checkAllBtn.style.visibility="hidden";
 
 
-
 var footerHidden = document.querySelector('.footer') //Footern
 footerHidden.style.visibility="hidden";
+
 //Gör knappen osynlig om det inte finns några uppg och vv
 function checkAllBtnFunc(){
 
 var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
 if(listOfCheckbox.length > 0){
-    checkAllBtn.style.visibility="visible"; //Knappen som checkar i alla uppg ska bara synas när det finns någon task
-    footerHidden.style.visibility="visible"; //Footern ska bara synas om det finns några tasks
+    checkAllBtn.style.visibility="visible";      //Knappen som checkar i alla uppgifter ska bara synas när det finns någon task
+    footerHidden.style.visibility="visible";    //Footern ska bara synas om det finns några tasks, annars visa inte.
 }
 else{
     checkAllBtn.style.visibility="hidden";
@@ -235,7 +226,6 @@ else{
 }
 
 }
-
 
 checkAllBtn.addEventListener('click', function(){ 
     let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
