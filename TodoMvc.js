@@ -24,7 +24,7 @@ newTask.addEventListener('keyup', function(event){
 
 // För varje enter knapp så skapas en ny task här
 function addInput(textValue){
-   var main = document.querySelector('main');
+   let main = document.querySelector('main'); //
    let label = document.createElement('label');  
    let inputt = document.createElement('input');
    let para = document.createElement('p'); 
@@ -64,7 +64,7 @@ var mode;
 // Uppdaterar för varje förändring på sidan itemsLeft
 function itemsLeft() {
 
-           var notChecked = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length;
+           let notChecked = document.querySelectorAll('input[type="checkbox"]:not(:checked)').length; //
            document.querySelector('.todo-count').innerHTML = notChecked + " Items left";
          
             }      
@@ -74,10 +74,10 @@ function itemsLeft() {
 var buttonDeleted = document.querySelector('#cCdelete');
 buttonDeleted.style.visibility="hidden";
 buttonDeleted.addEventListener('click', function(){ 
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
     listOfCheckbox.forEach(element => {
 
-        var lab = element.parentNode
+        let lab = element.parentNode //
         if(element.checked == true){
 
             lab.remove(lab);
@@ -97,11 +97,11 @@ buttonDeleted.addEventListener('click', function(){
 // Anropas för varje ny task för att lägga till eventlistener på checkboxarna, för att kunna manipulera tasken. Gör även Clear completed knappen synlig
 function checkTask() {
     
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));  
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check'));  //
     listOfCheckbox.forEach(element => {
 
         element.addEventListener('change', function(e) {
-            var lab = e.target.parentNode
+            let lab = e.target.parentNode //
 
             
 
@@ -136,7 +136,7 @@ function checkTask() {
 
 
 function ifAnyTaskIsChecked(){
-    var anyCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
+    let anyCheckBox = document.querySelectorAll('input[type="checkbox"]:checked'); //
     if(anyCheckBox.length > 0 ){
         buttonDeleted.style.visibility = "visible";
     }
@@ -158,9 +158,9 @@ buttonCompleted.addEventListener('click', function(){
     buttonAll.classList.remove('selected');
     buttonActive.classList.remove('selected'); //tar bort border från de andra knapparna
     buttonCompleted.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
     listOfCheckbox.forEach(element => {
-        var lab = element.parentNode
+        let lab = element.parentNode //
         if(element.checked == false){
             lab.style.display = 'none';
         }
@@ -178,9 +178,9 @@ buttonAll.addEventListener('click', function(){
     buttonCompleted.classList.remove('selected');
     buttonActive.classList.remove('selected'); //tar bort border från de andra knapparna
     buttonAll.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
     listOfCheckbox.forEach(element => {
-        var lab = element.parentNode
+        let lab = element.parentNode //
         if(element.checked == false || element.checked == true ){
             lab.style.display = 'grid';
         }
@@ -196,9 +196,9 @@ buttonActive.addEventListener('click', function(){
     buttonCompleted.classList.remove('selected');
     buttonAll.classList.remove('selected'); //tar bort border från de andra knapparna
     buttonActive.className += " " + 'selected'; //Lägger till en border till knappen när den är tryckt på.
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
     listOfCheckbox.forEach(element => {
-        var lab = element.parentNode
+        let lab = element.parentNode //
         if(element.checked == false){
             lab.style.display = 'grid';
             
@@ -238,15 +238,15 @@ else{
 
 
 checkAllBtn.addEventListener('click', function(){ 
-    var listOfCheckbox = Array.from(document.querySelectorAll('.check'));
-    var checkedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
-    var noCheckedCheckBox = document.querySelectorAll('input[type="checkbox"]:not(:checked)');
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
+    let checkedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked'); //
+    let noCheckedCheckBox = document.querySelectorAll('input[type="checkbox"]:not(:checked)'); //
    
         if(checkedCheckBox.length >= 0 && noCheckedCheckBox.length != 0){ 
             
         listOfCheckbox.forEach(element => {
              element.checked = true;
-            var lab = element.parentNode;
+            let lab = element.parentNode; //
             lab.setAttribute('class', 'lab');
             if(mode=='active'){
                 lab.style.display = 'none';
@@ -261,7 +261,7 @@ checkAllBtn.addEventListener('click', function(){
         else {
             listOfCheckbox.forEach(element => {
             element.checked = false;
-            var lab = element.parentNode;
+            let lab = element.parentNode; //
             lab.removeAttribute('class');
             if(mode=='completed'){
                 lab.style.display = 'none';
