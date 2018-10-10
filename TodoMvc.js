@@ -98,8 +98,6 @@ function checkTask() {
         element.addEventListener('change', function(e) {
             let lab = e.target.parentNode //
 
-            
-
             if(element.checked == true){
                 itemsLeft();
                 lab.setAttribute('class', 'lab');
@@ -162,7 +160,6 @@ buttonCompleted.addEventListener('click', function(){
     });
 });
 
-
 var buttonAll = document.querySelector('#all');
 buttonAll.addEventListener('click', function(){
     mode = "all";
@@ -175,11 +172,9 @@ buttonAll.addEventListener('click', function(){
         if(element.checked == false || element.checked == true ){
             lab.style.display = 'grid';
         }
-
     });
 
 });
-
 
 var buttonActive = document.querySelector('#active');
 buttonActive.addEventListener('click', function(){
@@ -197,15 +192,12 @@ buttonActive.addEventListener('click', function(){
         else{
             lab.style.display = 'none';
         }
-
     });
 });
-
 
 //Knappen som checkar i alla uppgifter
 var checkAllBtn = document.querySelector('#checkAll');
 checkAllBtn.style.visibility="hidden";
-
 
 var footerHidden = document.querySelector('.footer') //Footern
 footerHidden.style.visibility="hidden";
@@ -222,15 +214,13 @@ else{
     checkAllBtn.style.visibility="hidden";
     footerHidden.style.visibility="hidden";
     buttonDeleted.style.visibility="hidden"; 
-
 }
-
-}
+                             }
 
 checkAllBtn.addEventListener('click', function(){ 
-    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); //
-    let checkedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked'); //
-    let noCheckedCheckBox = document.querySelectorAll('input[type="checkbox"]:not(:checked)'); //
+    let listOfCheckbox = Array.from(document.querySelectorAll('.check')); 
+    let checkedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked'); 
+    let noCheckedCheckBox = document.querySelectorAll('input[type="checkbox"]:not(:checked)'); 
    
         if(checkedCheckBox.length >= 0 && noCheckedCheckBox.length != 0){ 
             
@@ -264,7 +254,6 @@ checkAllBtn.addEventListener('click', function(){
             buttonDeleted.style.visibility="hidden";
             itemsLeft();
         }
-
 });
 
 

@@ -32,8 +32,6 @@ h1{
     -webkit-appearance: caret;
 }
 
-
-
  /* Knappen som checkar i alla checkboxar */
 #checkAll{
     background: none;
@@ -104,7 +102,6 @@ label:hover .delete::after{
     font-size: large;
 }
  
-
 /* FOOTER */
 
  /* Där man kan välja att se vilka uppg som är färdiga, aktiva eller alla + hur många som är kvar */
@@ -182,22 +179,18 @@ button {
     border-color: gray;
 }
 
-
 .todo-count {
     padding-left: 2%;
     display: flex;
     flex: auto;
     align-self: center;
     font-weight: bold;
-
 }
 
 /* Test knapp för itemsLeft */
 .tryTodo {
     display: flex;
     width: 45.4%;
-   
-
 }
 
 /* Knapp för clear completed */
@@ -208,13 +201,11 @@ flex: auto;
 border-style:none;
 text-decoration: none;
 cursor: pointer;
-
 }
 
 #cCdelete:hover {
 text-decoration-line: underline;
 }
-
 
 /* Responsivitet vid förminskning */
 @media (max-width: 1500px){
@@ -244,11 +235,8 @@ text-decoration-line: underline;
          }
          .footer {
              width: 71%;
-         }
- 
- 
+         } 
  }
- 
 
 @media (max-width: 400px){
         #mainLab{
