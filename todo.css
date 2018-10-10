@@ -165,6 +165,7 @@ button {
     justify-content: space-evenly;
     margin-right: 15px;
     font-family: sans-serif;
+    font-weight: bold;
 
 }
 
@@ -186,7 +187,8 @@ button {
     padding-left: 2%;
     display: flex;
     flex: auto;
-    align-self: center
+    align-self: center;
+    font-weight: bold;
 
 }
 
